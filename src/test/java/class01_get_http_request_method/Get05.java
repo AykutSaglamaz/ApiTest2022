@@ -16,7 +16,7 @@ public class Get05 extends HerOkuAppBaseUrl {
         When
             Kullanici GET requesti URL'e gonderir
         Then
-            Status code : 200
+            Status code : 200 olmali
 	  	And
 	  	    Data'lar arasinda ismi (firstname) “Dane” ve soyismi (lastname) “Dominguez” olan biri olmali
      */
@@ -33,10 +33,10 @@ public class Get05 extends HerOkuAppBaseUrl {
            response.prettyPrint();
 
         //4. assertion yap
-        response.then().assertThat().statusCode(200).contentType(ContentType.JSON).body("bookingid", hasItem(1585));
+//        response.then().assertThat().statusCode(200).contentType(ContentType.JSON).body("bookingid", hasItem(8933));
 
         response.then().assertThat().statusCode(200);
-        assertTrue(response.asString().contains("bookingid"));
+        assertTrue("Aradiginiz data bulunamadi",response.asString().contains("bookingid"));
 
     }
 }

@@ -50,33 +50,31 @@ public class Get06 extends HerOkuAppBaseUrl {
         //1. yol
 
         response.then().assertThat().statusCode(200).contentType(ContentType.JSON).
-                body("firstname", equalTo("Sally")).
-                body("lastname", equalTo("Brown")).
+                body("firstname", equalTo("Javier")).
+                body("lastname", equalTo("Parchment")).
                 body("totalprice", equalTo(111)).
                 body("depositpaid", equalTo(true)).
-                body("bookingdates.checkin", equalTo("2013-02-23")).
-                body("bookingdates.checkout",equalTo("2014-10-23")).
+                body("bookingdates.checkin", equalTo("2018-01-01")).
+                body("bookingdates.checkout",equalTo("2019-01-01")).
                 body("additionalneeds", equalTo("Breakfast"));
 
         //2.yol JsonPath kullanarak assertion yapariz
         response.then().assertThat().statusCode(200).contentType(ContentType.JSON);
 
         JsonPath json = response.jsonPath();
-         assertEquals( "Sally", json.getString("firstname") );
-         assertEquals("Soyisimler eslesmiyor", "Brown", json.getString("lastname") );
+         assertEquals( "Javier", json.getString("firstname") );
+         assertEquals("Soyisimler eslesmiyor", "Parchment", json.getString("lastname") );
         assertEquals("total price eslesmiyor", 111, json.getInt("totalprice") );
         assertEquals("depositpaid eslesmiyor", true, json.get("depositpaid") );
-        assertEquals("Checkin date eslesmiyor", "2013-02-23", json.getString("bookingdates.checkin") );
+        assertEquals("Checkin date eslesmiyor", "2018-01-01", json.getString("bookingdates.checkin") );
 
         //3.yol SoftAssert
         //i- SoftAssert objesini olusturma
         SoftAssert softAssert = new SoftAssert();
 
         //ii- SoftAssert objesini kullanarak Assertion yapmak
-        softAssert.assertEquals(json.getString("firstname"),"Sally", "isimler eslesmiyor");
-        softAssert.assertEquals(json.getString("lastname"),"Brown", "Soyisimler eslesmiyor");
-
-
+        softAssert.assertEquals(json.getString("firstname"),"Javier", "isimler eslesmiyor");
+        softAssert.assertEquals(json.getString("lastname"),"Parchment", "Soyisimler eslesmiyor");
 
         //iii-MUTLAKA EN SONDA assertAll() yapilmali. Eger assertAll() kullanmazsaniz her zaman testiniz gecti gorunur fakat bu anlamli olmayabilir
         softAssert.assertAll();

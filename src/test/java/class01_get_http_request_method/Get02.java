@@ -48,8 +48,5 @@ public class Get02 extends HerOkuAppBaseUrl {
         assertEquals("Cowboy", response.getHeader("Server"));
 
 
-
-
-
     }
 }
