@@ -35,6 +35,7 @@ public class Get9 extends HerOkuAppBaseUrl {
     public void get09(){
         //1. adim Url'i set et
         spec.pathParams("first", "booking", "second", 74);
+
         //2.adim: expected datayi set et
 
         Map<String, String> expectedBookingDates = new HashMap<>();
@@ -71,15 +72,6 @@ public class Get9 extends HerOkuAppBaseUrl {
 
         assertEquals(expectedBookingDates.get("checkin"), ((Map)actualData.get("bookingdates")).get("checkin"));
         assertEquals(expectedBookingDates.get("checkout"), ((Map)actualData.get("bookingdates")).get("checkout"));
-
-
-
-
-
-
-
-
-
 
     }
 }
