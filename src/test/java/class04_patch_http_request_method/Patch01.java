@@ -1,4 +1,4 @@
-package Class04_patch_http_request_method;
+package class04_patch_http_request_method;
 
 import base_url.JsonPlaceHolderBaseUrl;
 import io.restassured.http.ContentType;
