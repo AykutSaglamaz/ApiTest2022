@@ -37,8 +37,8 @@ public class GetVePojo01 extends HerOkuAppBaseUrl {
         spec.pathParams("ilk", "booking", "ikinci", 2);
         //2. adim expected datayi set et
 
-        BookingDatesPojo bookingDates = new BookingDatesPojo("2017-09-11", "2021-03-14");
-        BookingPojo expectedData = new BookingPojo("Mark", "Jackson", 554, true, bookingDates, "additionalneeds" );
+        BookingDatesPojo bookingDates = new BookingDatesPojo("2018-01-01", "2019-01-01");
+        BookingPojo expectedData = new BookingPojo("James", "Brown", 111, true, bookingDates, "additionalneeds" );
         System.out.println(expectedData);
 
         //3.adim: request gonder, respond al
@@ -53,8 +53,10 @@ public class GetVePojo01 extends HerOkuAppBaseUrl {
 
       assertEquals("isimler eslesmiyor", expectedData.getFirstname(), actualData.getFirstname());
       assertEquals("Toplam ucret eslesmiyor", expectedData.getTotalprice(), actualData.getTotalprice());
+      assertEquals(expectedData.getLastname(), actualData.getLastname());
 
       assertEquals(expectedData.getBookingdates().getCheckout(), actualData.getBookingdates().getCheckout());
+        assertEquals(expectedData.getBookingdates().getCheckin(), actualData.getBookingdates().getCheckin());
 
     }
 }
