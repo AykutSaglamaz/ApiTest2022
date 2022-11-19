@@ -37,7 +37,11 @@ public class JsonPlaceHolderTestData {
 
     }
 
-
+//ObjectMapper icin
+    public String beklenenDataStringFormatinda(Integer userId, String title, Boolean completed){
+        String beklenenData = "{"+"\"userId\":" + userId + "," + "\"title\":" + "\"" + title + "\"" + "," + "\"completed\":" + completed + "};";
+        return beklenenData;
+    }
 
 
 
