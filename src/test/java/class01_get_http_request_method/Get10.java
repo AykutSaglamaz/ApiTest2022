@@ -42,7 +42,7 @@ public class Get10 extends GoRestApiBaseUrl {
     GoRestPojo expectedDataPojo = new GoRestPojo(null, dataPojo);
     System.out.println(expectedDataPojo);
 
-    //3. adim: REquest gonder, response al
+    //3. adim: Request gonder, response al
     Response response = given().spec(spec).when().get("/{first}/{second}");
     response.prettyPrint();
 
